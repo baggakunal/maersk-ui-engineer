@@ -1,0 +1,140 @@
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --gray: #BFBFBF;
+  --dark-gray: #333333;
+  --light-gray: #EFEFEF;
+  --blue: #2B8EAD;
+  --light-blue: #72C3DC;
+  --teal: #2F454E;
+  --light-teal: #6F98A8;
+}
+body {
+  margin: 0;
+}
+button {
+  min-width: 110px;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 3vw;
+  color: var(--white);
+  text-transform: uppercase;
+  background-color: var(--light-blue);
+  border: none;
+  border-bottom: 5px solid var(--blue);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.7;
+}
+
+.cards-header { 
+  grid-area: header;
+  padding: 10px 0;
+  font-size: 4vw;
+  color: var(--white);
+  background-color: var(--black);
+}
+.cards-main { 
+  grid-area: main;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cards-actions { grid-area: actions; }
+.cards-footer { 
+  grid-area: footer;
+  padding: 10px 0;
+  font-size: 14px;
+  font-style: italic;
+}
+.cards-container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'actions'
+    'main'
+    'footer';
+}
+.cards-container > div {
+  text-align: center;
+}
+.card {
+  width: 100%;
+  position: relative;
+  padding: 10px 0;
+  margin: 5px 10px;
+  background-color: var(--light-gray);
+  border-left: 10px solid var(--card-color);
+  box-sizing: border-box;
+}
+.card-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5vw;
+  font-weight: bold;
+}
+
+
+/* For tablets: */
+@media only screen and (min-width: 600px) {
+  button {
+    font-size: 2vw;
+  }
+  
+  .cards-header { 
+    font-size: 3vw;
+  }
+  .card-content {
+    font-size: 4vw;
+  }
+}
+
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+  button {
+    font-size: 1.5vw;
+  }
+
+  .cards-header {
+    font-size: 2vw;
+    color: var(--black);
+    background-color: var(--white);
+    border-bottom: 5px solid var(--gray);
+  }
+  .cards-actions,
+  .cards-footer {
+    background-color: var(--light-gray);
+  }
+  .cards-container {
+    max-width: 1000px;
+    display: grid;
+    grid-template-areas:
+      'header header header header header'
+      'main main main main actions'
+      'footer footer footer footer footer';
+    margin: 0 auto;
+  }
+  .card {
+    width: calc(100% / 3);
+    padding: 0;
+    margin: 0;
+    background-color: var(--card-color);
+    border: none;
+  }
+  .card:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  .card-content {
+    position: absolute;
+    font-size: 9vw;
+    color: var(--white);
+  }
+}
